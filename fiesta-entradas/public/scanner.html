@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0e0a18">
+  <title>Puerta</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="scanner-page">
+  <div id="login" class="login hidden">
+    <form id="loginForm" class="card login-card">
+      <div class="eyebrow">Puerta</div>
+      <h1>📷 <span data-evento>Escáner</span></h1>
+      <p class="muted">Introduce el PIN de portero</p>
+      <input id="pinInput" type="password" inputmode="numeric" autocomplete="current-password" placeholder="••••••" required>
+      <button class="btn">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+
+  <header class="top">
+    <div>
+      <div class="eyebrow">Puerta</div>
+      <h1 data-evento>…</h1>
+    </div>
+    <nav>
+      <a class="btn ghost small hidden" id="linkTaquilla" href="/">🎟️ Taquilla</a>
+      <button class="btn ghost small" id="logout">Salir</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" style="grid-template-columns:1fr 1fr">
+      <div class="stat"><span id="stDentro">–</span><label>Dentro</label></div>
+      <div class="stat"><span id="stVendidas">–</span><label>Vendidas</label></div>
+    </section>
+
+    <div class="reader-wrap">
+      <div id="reader"></div>
+      <div class="reader-empty" id="readerEmpty">
+        <div>
+          <p class="muted" id="camMsg">Pulsa para encender la cámara</p>
+          <button class="btn big" id="btnStart">📷 Empezar a escanear</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>¿No lee el QR?</h2>
+      <p class="muted small" style="margin:0">Escribe el nº de entrada (sale en su email) y comprueba el nombre con su DNI.</p>
+      <form id="formManual" class="manual" autocomplete="off">
+        <input id="manualInput" inputmode="numeric" placeholder="Nº de entrada, ej. 23" required>
+        <button class="btn">Validar</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay hidden"><div class="ov-inner" id="ovInner"></div></div>
+
+  <script src="/html5-qrcode.min.js"></script>
+  <script src="/app.js"></script>
+  <script src="/scanner.js"></script>
+</body>
+</html>

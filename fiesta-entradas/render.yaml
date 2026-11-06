@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: fiesta-entradas
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: TAQUILLA_PIN
+        sync: false
+      - key: PORTERO_PIN
+        sync: false
+      - key: EVENTO_NOMBRE
+        sync: false
+      - key: EVENTO_FECHA
+        sync: false
+      - key: EVENTO_LUGAR
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_FROM_NAME
+        sync: false
+      - key: PUBLIC_URL
+        sync: false

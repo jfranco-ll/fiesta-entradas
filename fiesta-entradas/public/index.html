@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Taquilla</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="login" class="login hidden">
+    <form id="loginForm" class="card login-card">
+      <div class="eyebrow">Acceso</div>
+      <h1>🎟️ <span data-evento>Entradas</span></h1>
+      <p class="muted">Introduce el PIN de taquilla o de portero</p>
+      <input id="pinInput" type="password" inputmode="numeric" autocomplete="current-password" placeholder="••••••" required>
+      <button class="btn">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+
+  <header class="top">
+    <div>
+      <div class="eyebrow">Taquilla</div>
+      <h1 data-evento>…</h1>
+    </div>
+    <nav>
+      <a class="btn ghost small" href="/scanner">📷 Escáner</a>
+      <button class="btn ghost small" id="logout">Salir</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="stats">
+      <div class="stat"><span id="stVendidas">–</span><label>Vendidas</label></div>
+      <div class="stat gold"><span id="stPrimeras">–</span><label>Con chupito quedan</label></div>
+      <div class="stat"><span id="stDentro">–</span><label>Ya dentro</label></div>
+    </section>
+
+    <section class="card">
+      <h2>Nueva entrada (cobrada en efectivo)</h2>
+      <p id="siguiente" class="pill">Cargando…</p>
+      <form id="formEntrada" autocomplete="off">
+        <label>Nombre y apellidos
+          <input name="nombre" required maxlength="120">
+        </label>
+        <label>Email (aquí le llega el QR)
+          <input name="email" type="email" required inputmode="email" maxlength="200" autocapitalize="off" spellcheck="false">
+        </label>
+        <label>Teléfono (opcional)
+          <input name="telefono" type="tel" maxlength="40">
+        </label>
+        <button class="btn big" id="btnCrear">💶 Pagado · Crear y enviar entrada</button>
+      </form>
+      <div id="resultado"></div>
+    </section>
+
+    <section class="card">
+      <div class="row-between">
+        <h2>Entradas</h2>
+        <input id="buscar" class="search" type="search" placeholder="Buscar nombre, email o nº">
+      </div>
+      <div id="lista" class="lista"><p class="muted">Cargando…</p></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+  <script src="/taquilla.js"></script>
+</body>
+</html>
